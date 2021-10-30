@@ -27,6 +27,7 @@ public class Pixel {
     }
 
     public void setCurrentColor(int r, int g, int b) {
+        //change current color to the new color provided using red, green and blue values
         this.currentColor = new Color(r, g, b);
     }
 
@@ -35,6 +36,7 @@ public class Pixel {
     }
 
     public void updateImage(BufferedImage sourceImage) {
+        // TODO: 29/10/2021 Legacy : remove this as it was added to ImagePanel class
         sourceImage.setRGB(x, y, currentColor.getRGB());
     }
 
