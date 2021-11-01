@@ -13,6 +13,7 @@ public class editingWindow {
         JFrame mainFrame = new JFrame("Editing Window");
         //creating a panel to add to the frame
         ImagePanel panel = new ImagePanel("EditingWindow/media/example.jpg");
+        
         //setting the panel layout
         panel.setLayout(new FlowLayout());
         //adding the panel to the frame
@@ -29,15 +30,10 @@ public class editingWindow {
         //showing the frame
         //read image from folder
         BufferedImage mainImage = null;
-        try {
-            mainImage = ImageIO.read(new File("EditingWindow/media/example.jpg"));
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
+
 
         mainFrame.setVisible(true);
-       
+
 
     }
 

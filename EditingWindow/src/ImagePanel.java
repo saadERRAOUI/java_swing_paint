@@ -6,23 +6,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class ImagePanel extends JPanel {
+    //a Jpanel responsible of controling panels
     private BufferedImage image;
     ContinuousPaintingThread t;
-    // ConcurrentLinkedQueue<Point> queue = new ConcurrentLinkedQueue<Point>();
     PaintConcurrentLinkedQueue queue = new PaintConcurrentLinkedQueue();
 
     public ImagePanel(String imagePath) {
         //Constructor , create an image panel from an image path
-        try {
-            image = ImageIO.read(new File(imagePath));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        openImage(imagePath);
         this.setSize(new Dimension(image.getWidth(), image.getHeight()));
 
         addMouseListener(new MouseAdapter() {
@@ -60,6 +54,16 @@ public class ImagePanel extends JPanel {
         queue.addPoint(tempPoint);
     }
 
+    public void openImage(String s) {
+        //open & set image from string
+        try {
+            setImage(ImageIO.read(new File(s)));
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+    }
+
     public void setImage(BufferedImage image) {
         // a setter for the current image
         this.image = image;
@@ -67,8 +71,12 @@ public class ImagePanel extends JPanel {
         this.repaint();
     }
 
-    public void paintLine(int x1, int y1, int x2, int y2, Color lineColor) {
+    public void paintLine(Point p1, Point p2, Color lineColor) {
+        paintLine(p1.x, p1.y, p2.x, p2.y, lineColor);
+    }
 
+    public void paintLine(int x1, int y1, int x2, int y2, Color lineColor) {
+        //paint line between two points (p1,p2) with the color LineColor
         Graphics2D g2d = (Graphics2D) getGraphics();
         g2d.setColor(lineColor);
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -133,15 +141,15 @@ public class ImagePanel extends JPanel {
                 {
                     Point p1 = queue.poll();
                     Point p2 = queue.poll();
-                    paintLine(p1.x, p1.y, p2.x, p2.y, Color.BLUE);
+                    paintLine(p1, p2, Color.BLUE);
                 }
             }
         } else {
-            while (queue.size() >= 3) {
+            while (queue.size() > 2) {
                 {
                     Point p1 = queue.poll();
                     Point p2 = queue.peek();
-                    paintLine(p1.x, p1.y, p2.x, p2.y, Color.BLUE);
+                    paintLine(p1, p2, Color.BLUE);
                 }
             }
         }
