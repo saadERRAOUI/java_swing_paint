@@ -29,8 +29,6 @@ public class editingWindow {
         //showing the frame
         //read image from folder
         BufferedImage mainImage = null;
-
-
         mainFrame.setVisible(true);
 
 
