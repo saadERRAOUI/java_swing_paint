@@ -12,7 +12,7 @@ class ContinuousPaintingThread extends Thread {
     public void run() {
         //while the exit flag isn't raised, paint continuously
         while (!exit) {
-            imagePanel.paintQueue();
+            imagePanel.paintQueue(false);
         }
     }
 

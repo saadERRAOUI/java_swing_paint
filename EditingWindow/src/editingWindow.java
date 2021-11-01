@@ -19,7 +19,8 @@ public class editingWindow {
         mainFrame.add(panel);
 
         //setting default frame size and location,
-        mainFrame.setSize(900, 900);
+        mainFrame.setSize(panel.getSize());
+        mainFrame.setResizable(false);
         mainFrame.setLocationRelativeTo(null);
         //setting jframe color
         panel.setBackground(new Color(153, 153, 153));
