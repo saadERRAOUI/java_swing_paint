@@ -13,7 +13,6 @@ public class editingWindow {
         JFrame mainFrame = new JFrame("Editing Window");
         //creating a panel to add to the frame
         ImagePanel panel = new ImagePanel("EditingWindow/media/example.jpg");
-        
         //setting the panel layout
         panel.setLayout(new FlowLayout());
         //adding the panel to the frame
