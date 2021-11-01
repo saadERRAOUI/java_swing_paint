@@ -73,6 +73,7 @@ public class ImagePanel extends JPanel {
         g2d.setColor(lineColor);
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         // TODO: 01/11/2021 change params from real variables
+
         BasicStroke b = new BasicStroke(50, BasicStroke.CAP_ROUND, 1);
         g2d.setStroke(b);
         g2d.drawLine(x1, y1, x2, y2);
@@ -163,7 +164,7 @@ public class ImagePanel extends JPanel {
 
     public void paintQueue(boolean isPaintAll) {
         // TODO: 30/10/2021 change the temp params here to real params (r and color)
-
+        // a function responsible for painting all elements in the Queue,
         if (isPaintAll) {
             while (!queue.isEmpty()) {
                 {

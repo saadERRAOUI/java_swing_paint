@@ -1,6 +1,6 @@
 
 class ContinuousPaintingThread extends Thread {
-    //a Class that describes a thread responsible for painting continuously on a image
+    //a Class that describes a thread responsible for painting continuously on an image
     private ImagePanel imagePanel;
     private boolean exit = false;
 
