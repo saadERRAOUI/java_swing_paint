@@ -37,21 +37,7 @@ public class editingWindow {
         }
 
         mainFrame.setVisible(true);
-        Pixel pixelPointer = new Pixel(new Color(0, 0, 0));
-
-        //get RGB, the values in p are stored in bytes and are hard to easily manipulate
-        // except if we used Color class
-
-
-//        //test pixle class , turn everything in an image to black
-//        TimeUnit.SECONDS.sleep(5);
-//        Pixel pixelPointer = new Pixel(new Color(0, 0, 0));
-//        for (int i = 0; i < mainImage.getWidth(); i++) {
-//            for (int j = 0; j < mainImage.getHeight(); j++) {
-//                pixelPointer.setCoordinates(i, j);
-//                panel.updateImage(pixelPointer);
-//            }
-//            //panel.repaint();
+       
 
     }
 

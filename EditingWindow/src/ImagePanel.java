@@ -82,44 +82,12 @@ public class ImagePanel extends JPanel {
 
 
     public void paintCercle(int x, int y, int r, Color CercleColor) {
-
+        //a function that paints a Cercle defined by it's center (x,y) and rayon, as well as it's color;
         Graphics2D g2d = (Graphics2D) getGraphics();
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setColor(CercleColor);
         g2d.fillOval(x, y, r, r);
 
-        // a function that paints a filled cercle using the params x, y , rayon and a color
-       /* double i, angle, x1, y1;
-        for (i = 0; i < 360; i += 5) {
-            angle = i;
-            x1 = r * Math.cos(angle * Math.PI / 180);
-            y1 = r * Math.sin(angle * Math.PI / 180);
-            //right low quarter j>=x & K>=y
-            for (int j = x; j < (int) (x + x1); j++) {
-                for (int k = y; k < (int) (y + y1); k++) {
-                    this.updateImage(new Pixel(CercleColor, j, k));
-                }
-            }
-
-            //left low quarter j<=x & K>=y
-            for (int j = x; j > (int) (x + x1); j--) {
-                for (int k = y; k < (int) (y + y1); k++) {
-                    this.updateImage(new Pixel(CercleColor, j, k));
-                }
-            }
-            //left top quarter j<=x & K<=y
-            for (int j = x; j > (int) (x + x1); j--) {
-                for (int k = y; k > (int) (y + y1); k--) {
-                    this.updateImage(new Pixel(CercleColor, j, k));
-                }
-            }
-            //right top quarter j<=x & K>=y
-            for (int j = x; j < (int) (x + x1); j++) {
-                for (int k = y; k > (int) (y + y1); k--) {
-                    this.updateImage(new Pixel(CercleColor, j, k));
-                }
-            }
-        }*/
     }
 
     public void updateImage(int x, int y, Color c) {
@@ -139,11 +107,6 @@ public class ImagePanel extends JPanel {
         updateImage(p.x, p.y, c);
     }
 
-    public void updateImage(Pixel p) {
-        //an overload of update image, takes a Pixel instead of the coordinates and the color
-        //replace the image pixel with a pixel passed in params
-        updateImage(p.getX(), p.getY(), p.getCurrentColor());
-    }
 
     public BufferedImage getImage() {
         //getter of the buffered image
